@@ -6,9 +6,9 @@ app.use(cors());        // Avoid CORS errors in browsers
 app.use(express.json()) // Populate req.body
 
 const widgets = [
-    { id: "1", name: "Cizzbor", price: 29.99 },
-    { id: "2", name: "Woowo", price: 26.99 },
-    { id: "3", name: "Crazlinger", price: 59.99 },
+    { id: 1, name: "Cizzbor", price: 29.99 },
+    { id: 2, name: "Woowo", price: 26.99 },
+    { id: 3, name: "Crazlinger", price: 59.99 },
 ]
 
 app.get('/widgets', (req, res) => {
@@ -27,7 +27,7 @@ app.post('/widgets', (req, res) => {
         return res.status(400).send({ error: 'One or all params are missing' })
     }
     let newWidget = {
-        id: req.body.id,
+        id: widgets.length + 1,
         price: req.body.price,
         name: req.body.name
     }
